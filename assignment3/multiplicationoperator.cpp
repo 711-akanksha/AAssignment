@@ -7,9 +7,11 @@ complex(int r=0,int i=0)
 {
 real=r;
 img=i;
+
 }
 void print(){
     cout<<real<<" +i"<<img<<endl;
+
 }
 friend complex operator *(const complex &,const complex& ); // Multiplication
 
@@ -19,9 +21,12 @@ int real, img;
 };
 
 
-complex operator*(const complex &obj1,const complex &obj2)
+complex operator*(const complex &t,const complex &u)
  {
-	 return complex(obj1.real * obj2.real, obj1.img * obj2.img);
+
+	complex  result( t.real * u.real - t.img * u.img,
+t.img * u.real + t.real * u.img );
+return result;
  }
 
 int main(){
@@ -31,6 +36,7 @@ complex c3=c1*c2;
 c1.print();
 c2.print();
 c3.print();
+
 
 
 
